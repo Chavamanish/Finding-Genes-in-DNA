@@ -1,14 +1,17 @@
+//The start codon of a gene is always “ATG”, while the stop codon of a gene can be “TGA”, “TAA” or “TAG”
+
+
 public class part1 {
     public String findsimplegene(String dna)
     {
         String result="";
        int startpos= dna.indexOf("ATG");
-       System.out.println(startpos);
+       System.out.println(startpos); //Prints starting position of codon
        if(startpos==-1)
        {return "";
         }
-        int endpos=dna.indexOf("TAA",startpos+3);
-        System.out.println(endpos);
+        int endpos=dna.indexOf("TAA",startpos+3);  
+        System.out.println(endpos);  
         if(endpos==-1)
         {return "";
         }
