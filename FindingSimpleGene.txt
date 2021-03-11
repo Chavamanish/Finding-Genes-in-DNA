@@ -1,0 +1,120 @@
+//PART 1
+
+public class part1 {
+    public String findsimplegene(String dna)
+    {
+        String result="";
+       int startpos= dna.indexOf("ATG");
+       System.out.println(startpos);
+       if(startpos==-1)
+       {return "";
+        }
+        int endpos=dna.indexOf("TAA",startpos+3);
+        System.out.println(endpos);
+        if(endpos==-1)
+        {return "";
+        }
+        result=dna.substring(startpos,endpos+3);
+        
+        if(((startpos+3)-endpos)%3==0)
+        {
+        return result;
+        }
+        else{
+            return "";
+
+    }
+}
+    public void testsimplegene()
+    {
+        String dna="ACATGTCGGCTTCATAAG";
+        System.out.println("The DNA is:" +dna);
+        String s=findsimplegene(dna);
+        System.out.println("The Gene is:" +s);
+        
+        dna="ACATGTCGGCTTCTAAG";
+        System.out.println("The DNA is:" +dna);
+        s=findsimplegene(dna);
+        System.out.println("The Gene is:" +s);
+        
+        dna="ACATATCGGCTTCATAAG";
+        System.out.println("The DNA is:" +dna);
+        s=findsimplegene(dna);
+        System.out.println("The Gene is:" +s);
+        
+       
+
+
+
+        
+
+    }
+    
+}
+
+//PART 2
+
+public class part2 {
+    public String findsimplegene(String dna, String startcodon, String stopcodon)
+    {
+       String dnaupp=dna.toUpperCase();
+       String result="";
+       String dnalow="";
+       int startpos= dnaupp.indexOf(startcodon);
+       if(startpos==-1)
+       {return "";
+        }
+        int endpos=dnaupp.indexOf(stopcodon,startpos+3);
+                if(endpos==-1)
+        {return "";
+        }
+         result=dna.substring(startpos,endpos+3);
+        if(((startpos+3)-endpos)%3==0)
+        {
+            if(dna.startsWith("a"))
+        {
+         dnalow=result.toLowerCase();
+         return dnalow;
+    }else{
+        return result;
+    }
+          
+        }
+        else{
+            return "";
+
+    }
+}
+    public void testsimplegene()
+    {
+        String atg="ATG";
+        String taa="TAA";
+        String dna="ACATGTCGGCTTCATAAG";
+        System.out.println("The DNA is:" +dna);
+        String s=findsimplegene(dna,atg,taa);
+        System.out.println("The Gene is:" +s);
+        
+        dna="ACATGTCGGCTTCTAAG";
+        System.out.println("The DNA is:" +dna);
+        s=findsimplegene(dna,atg,taa);
+        System.out.println("The Gene is:" +s);
+        
+        dna="ACATATCGGCTTCATAAG";
+        System.out.println("The DNA is:" +dna);
+        s=findsimplegene(dna,atg,taa);
+        System.out.println("The Gene is:" +s);
+        
+        dna="acatgtcggcttcataag";
+        System.out.println("The DNA is:" +dna);
+        s=findsimplegene(dna,atg,taa);
+        System.out.println("The Gene is:" +s);
+        
+       
+
+
+        
+
+    }
+    
+
+}
